@@ -31,9 +31,11 @@ stage ('Tomcat deployment')
 }   
 }
 
+/*
 stage('email notification')
 {
     emailext body: 'The jenkins pipeline for wallmart-dev-sample1 is success', subject: 'Build is success', to: 'dddreamtechnologies@gmail.com'    
 }
-
+*/
+    
 }
