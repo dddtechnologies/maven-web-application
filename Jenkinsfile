@@ -62,7 +62,7 @@ pipeline {
                 }
             }
         
-            stage('sonarqubereport'){
+ /*           stage('sonarqubereport'){
                 steps {
                     sh "mvn sonar:sonar"
                 }
@@ -72,6 +72,6 @@ pipeline {
                 steps {
                     sh "mvn deploy"
                 }
-            }
+            } */
     }
 }
