@@ -1,3 +1,4 @@
+/*
 node 
 {
 
@@ -31,11 +32,46 @@ stage ('Tomcat deployment')
 }   
 }
 
-/*
+
 stage('email notification')
 {
     emailext body: 'The jenkins pipeline for wallmart-dev-sample1 is success', subject: 'Build is success', to: 'dddreamtechnologies@gmail.com'    
+}    
 }
 */
+
+
+pipeline {
+    agent any
+
+    tools {
+        maven "maven3.9.6"
+    }
     
+    stages {
+        
+            stage('git clone') {
+                steps {
+                    git branch: 'main', credentialsId: '987a3773-624b-4ccd-a30d-a246ae929c97', url: 'https://github.com/dddtechnologies/maven-web-application.git'
+                }
+            }
+        
+            stage('maven build'){
+                steps {
+                    sh "mvn clean package"
+                }
+            }
+        
+            stage('sonarqubereport'){
+                steps {
+                    sh "mvn sonar:sonar"
+                }
+            }
+        
+            stage ('Upload artifact to nexus'){
+                steps {
+                    sh "mvn deploy"
+                }
+            }
+    }
 }
