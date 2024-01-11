@@ -61,6 +61,7 @@ pipeline {
                     sh "mvn clean package"
                 }
             }
+        
   /*      
             stage('sonarqubereport'){
                 steps {
