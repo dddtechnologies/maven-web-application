@@ -9,11 +9,11 @@ on:
   pull_request:
     branches: [ master,develop ]
   workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to deploy to'
-        required: true
-        default: 'main'
+    # inputs:
+    #   environment:
+    #     description: 'Environment to deploy to'
+    #     required: true
+    #     default: 'main'
 
 jobs:
   build:
